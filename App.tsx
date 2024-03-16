@@ -10,7 +10,6 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -24,13 +23,28 @@ function App(): React.JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <View>
-        <Text>Hello World</Text>
+      <View style={styles.container}>
+        <Text style={isDarkMode ? styles.lightText : styles.darkText}>
+          Hello World
+        </Text>
       </View>
     </SafeAreaView>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    // flex: 1,
+    // alignItems: 'flex-end',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  lightText: {
+    color: 'white',
+  },
+  darkText: {
+    color: 'black',
+  },
+});
 
 export default App;
